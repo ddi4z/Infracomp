@@ -1,0 +1,68 @@
+1. S1 y S2 tienen disponibilidad del 95%, dos ramas
+
+a. Porcentaje Disponibilidad
+D(SA) = D(SB) = D(S1) * D(S2)
+D(S) = D(SA) + D(SB) - D(SA) * D(SB)
+D(S) = 2D(SA) - D(SA)^2
+D(S) = 2*0.9025 - 0.9025^2 = 0.9905
+
+b. Calcule tiempo de indisponibilidad en una semana
+I(S) = 1 - 0.9905 = 0.0095
+T = 7d * 24h/d * 60m/h * 60s/m * 0.0095 = 604800s * 0.0095 = 5745.6 S
+
+95 minutos y 45 segundos = 1 hora, 35 minutos y 45 segundos
+
+=COCIENTE(a; b) es para division entrra
+=RESIDUO(a; b) para modulo
+
+2.  S1 y S2 tienen disponibilidad del 95%, tres ramas
+
+a. Porcentaje Disponibilidad
+D(SA) = D(SB) = D(SC) = D(S1)*D(S2)
+D(S) = D(SA) + D(SB) - D(SA)*D(SB) - D(SB)*D(SC) - D(SA)*D(SC) + D(SA)*D(SB)*D(SC)
+
+3. 20000 h entre fallas, 240h reparar
+
+D = MTBF / (MTBF + MTTR) = 20000h + (20000h + 240h) = 0.98814
+
+
+4. Disponibilidad 97% mínimo
+3000 IOPS, MTBF 10000, MTTR 240, 
+200 IOPS actual. 300 IOPS objetivo
+D(Disco) = 10000/10240 = 0.9766
+
+RAID 0: Dos discos, Va secuencial, necesita ambos en ejecución, entonces multiplicación de disponibilidad
+D(Disco)^2 = 0.95 No cumple disponibilidad
+
+RAID 1: Dos discos, Va paralelo, redundante, unión
+2*D(Disco) - D(Disco)^2 = 0.9994 cumple disponibilidad
+
+Mirroring, cada disco soporta 200
+Para lectura, soporta 400
+Para escritura, soporta 200
+No nos sirve por IOPS porque 300 no se puede
+
+RAID 5: Tres discos, nos sirve cuando haya por lo menos dos
+Es disponible en las intersecciones, es decir en 3*D1*D2 - 2*D1*D2*D3
+3*D(Disco)^2 - 2*D(Disco)^3 = 0.9978 cumple
+
+Tres discos, uno de paridad
+Para lectura, soporta 400 (Una no por ser paridad de forma neta)
+Para escritura, soporta 400 (En paralelo sobre dos discos)
+Entonces soporta IOPS
+
+Es más barato por 3X, más efectivo por costo (qué tan bien se usa el recurso)
+
+RAID 0+1: Striping sobre Mirroring
+(A A) (B B), el de adentro en paralelo
+Para cada Mirroring, 2*D(Disco) - D(Disco)^2 = 0.9994 cumple
+Como están en Striping, es secuencial (2*D(Disco) - D(Disco)^2)^2 = 0.9994^2
+
+Para lectura, soporta 400 (200 por cada cluster)
+De cada cluster sale un pedazo del archivo
+Para escritura, soporta 400
+Entonces soporta IOPS
+
+Pero es más caro por ser 4X, menos efectivo (qué tan bien se usa el recurso)
+
+

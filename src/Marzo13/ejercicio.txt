@@ -1,0 +1,23 @@
+Nodos-i, Nodo de 8 entradas, última entrada es para un bloque de apuntadores
+Bloques de 1KiB, Identificadores de bloque (direcciones) de 32 bits
+-----------------
+1. 7KiB para los 7 primeros Nodos
+2. 2^10 * 2^3 bits / 2^5 bits   = 2^8 = 256 
+3. 256 * 1KiB = 256 KiB
+4- (7+256) Kib = 263 KiB
+
+----
+
+Direcciones del disco requieren de D bits
+B bloques 
+F bloques libres de B totales
+
+En lista, tiene F elementos, consume en total F*D bits
+En mapa de bits tiene B bloques (bits)
+F*D bits < B bits
+
+__________
+
+16F < B
+
+F < B/16 = 0,0625 B = 6,25%

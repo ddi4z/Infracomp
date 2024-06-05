@@ -1,0 +1,41 @@
+EJ/ Componentes S1 y S2 redundante (paralelo)
+D(S1)=96%, D(S2)=97%
+
+¿Mejor invertir en S1 o S2 aumentando un 1% de disponibilidad?
+
+Iniciar 0.96 + 0.97 - 0.96*0.97 = 0.9988
+Invertir en S1 = 0.97 + 0.97 - 0.97^2 = 0.9991 
+Invertir en S2 = 0.96 + 0.98 - 0.96*0.98 = 0.9992
+Mejor invertir en S2, mejor invertir en la más alta, rendimiento del 0.0004
+
+Disponibilidad esperada en un año
+
+= 365 * 0.0004 = 0.146 dias = = 3.504 horas = 3 horas y 30.24 minutos = 3 horas, 30 minutos, 14.4 segundos
+
+EJ/ 200 peticiones por segundo al disco, tiempo de 4 ms
+Disco de reemplazo de 3 ms. Cuesta el doble, 2X
+a. Qué tanto mejora el desempeño si se reemplaza el disco
+R = tiempo demora cola + tiempo servicio
+
+Para disco 1
+Ra = inverso tasa de llegada = 1/a = 1 / 200 peticiones/segundo = 5 ms
+U = Rs/Ra = 4/5 = 0.8
+R = Rs/(1-U) = 4/0.2 = 20 ms
+tiempo promedio cola tpc = U/(1-U) = 0.8 / (1-0.8) para disco 1
+
+Para disco 2
+Ra = inverso tasa de llegada = 1/a = 1 / 200 peticiones/segundo = 5 ms
+U = Rs/Ra = 3/5 = 0.6
+R = Rs/(1-U) = 4/0.4 = 7.5 ms
+
+Razón del desempeño 20/7.5 = 2.6 mejor
+
+b. Mejor mantener el primer disco y comprar un 2do con las mismas características del primero?
+División equitativa de carga, entonces 100 peticiones/s
+
+Para dos discos tipo 1
+Ra Tiempo promedio de llegada 10 ms
+U = 4/10 = 0.4
+R = Rs/(1-U)= 4/0.6 = 6.7 ms
+
+

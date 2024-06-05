@@ -1,0 +1,15 @@
+Sumar dos matrices de enteros de 32 * 32 (A, B y C)
+5 marcos de página
+- 1 para instrucciones fijas
+- 1 para stack fijo de i,j
+- 3 para matrices como variables globales
+Enteros de 2B, algoritmo LRU, row major, página de 64B
+¿Cantidad de fallas?
+--------------------------------------------------------------
+Por página caben 32 enteros, # Tabla / # Entero = 64B / 2B
+A[0][0] trae la página, es decir la fila 0 de la matriz
+Hay 32 para cada matriz, por cada fila
+Por ahora 96 fallos
+Si aumenta a 4B el entero, se genera el doble de fallas
+Si hay más marcos de página, se debe analizar la decisión
+Si hay menos, ocurre sobreescritura y más fallos

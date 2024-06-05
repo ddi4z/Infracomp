@@ -1,0 +1,51 @@
+15312 base 10 a traducción
+11 - 1011 1101 0000 en binario
+Página virtual - Desplazamiento 
+
+11 en base 2 = 3 en base 10
+De acuerdo a tp, la posicion 3 tiene asignada la posicion 5, que en base 2 es 101
+
+Entonces queda 101 - 1011 1101 0000
+
+ 
+
+Si tenemos 2^12
+
+------------------
+
+direcciones virtuales de 32 bits
+paginas de memoria de 2^12 posiciones
+4 bytes por entrada en la tabla de paginas
+
+Calcule el tamaño de la tabla de paginas
+Numero de paginas(entradas en la tabla) = 2^32 / 2^12 = 2^20 
+Numero de paginas(entradas en la tabla) = 2^32 / 2^12 = 2^20
+Tamaño de la tabla =  2^20 * 4 B = 2^22 = 4 MiB
+
+
+--------------------------
+
+Numero de direcciones en memoria virutal es 2^32
+La longitud de una direccion de memoria virtual es 32 bits
+Numero de direcciones en memoria real = 2^30 con capacidad
+de almacenamiento de 1B por dirrecion
+La capacidad de almancenamiento de la memoria es: 2^30* 1B = 1 GiB
+Cada pagina agrupa 2^12 direcciones y cada entrada de la TP mide 6B
+el tamaño en la tabla de paginas es: 6 MiB
+
+2^32/2^12 = 2^20 entradas
+6 * 2^20 B = 6
+
+
+----------
+Ejercicio de nano segundos
+
+0.8 * 100 ns + 0.2 * 2.5*10^6 ns
+
+----------
+Suponga que un entero ocupa 4B
+
+Una pagina mide 32B
+
+En la primera iteracion del ciclo se trae los 8 enteros de A 
+y los 8 enteros de B. Para las siguientes 7 iteraciones se obtiene un hits

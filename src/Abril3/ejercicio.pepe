@@ -1,0 +1,84 @@
+2 3 2 4 3 1 2 3 1 4 3 1 2 3 4
+
+Para la secuencia de referencias a páginas dada, ¿cuántos fallos de páginas se
+producen si se usa un algoritmo de remplazo LRU?
+¿Qué pasa si ampliamos el espacio de trabajo a 4 páginas?
+Y si mantenemos 3, pero cambiamos a FIFO?
+
+
+
+[2,3,4] pendientes 1 2 3 1 4 3 1 2 3 4
+[1,3,4] pendientes 2 3 1 4 3 1 2 3 4
+[1,3,2] pendientes 4 3 1 2 3 4
+[1,3,4] pendientes 2 3 4
+[1,3,2] pendientes 4
+[4,3,2] 
+
+
+Total = 3 + 6
+
+Total2 = 4
+
+2 3 2 4 3 1 2 3 1 4 3 1 2 3 4
+
+[2,3,4] 1 2 3 1 4 3 1 2 3 4
+[3,4,1] 2 3 1 4 3 1 2 3 4
+[4,1,2] 3 1 4 3 1 2 3 4
+[1,2,3] 4 3 1 2 3 4
+[2,3,4] 1 2 3 4
+[3,4,1] 2 3 4
+[4,1,2] 3 4
+[1,2,3] 4
+[2,3,4] 
+
+total = 9+3 
+
+----------------------
+
+Páginas de 2^6B
+Memoria real de 2^12B
+Memoria virtual de 2^14B
+
+61 base 10 = 1111 01 base 2 (6 bits)
+
+2^14 / 2^6 = 2^8 Páginas virtuales
+
+0000 0000 - 1111 01 (8 ceros a la izquierda para llegar a 14)
+
+0 por TP es 7
+
+000 111 - 1111 01
+
+R/ 509 en real
+
+-----------
+direccion virtual = 0001 0100 0111
+
+Páginas de 64 posiciones
+• Bus de direcciones de 12 bits
+• Con la tabla de páginas de la derecha, ¿A
+que dirección real mapea esa dirección?
+
+6 bits para Desplazamiento
+
+000101 000111
+
+5 = 12
+
+001100 000111
+
+R/ 775 en real
+
+------------
+
+Cuál es el tamaño del archivo más grande en Unix si los bloques son
+de tamaño 4KB y los bloques del disco se direccionan con 4 bytes.
+
+10 bloques directos, 1 indirecto, 1 indirecto doble y 1 indirecto triple
+
+4 KB * 10 = 40 KB directos
+10^3 * 4 bytes / 4 bytes = 10^3 = 1000 
+4 KB * 1000 = 4000 KB primera indirecta
+
+// Segunda y 3ra
+
